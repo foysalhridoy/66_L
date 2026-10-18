@@ -58,19 +58,25 @@ export const ANNOUNCEMENTS: Announcement[] = [
     title: 'Week 5 Mathematics Problem-Solving Assignment',
     summary: 'Handwritten problem-solving assignment covering Week 5 mathematics problems.',
     instructions: [
-      'Solve all mathematics problems provided in the Week 5 PDF.',
+      'Solve all mathematics problems provided in the Week 5 PDF on BLC.',
       'If you cannot solve any problem, write the question along with the details on the last page of your assignment.',
       'The teacher will conduct an online class to solve the questions students could not solve.',
-      'The assignment must be handwritten.',
+      'The assignment must be handwritten and submitted via BLC.',
     ],
     importantNotes: [
       'The deadline refers to midnight at the beginning of 22 October 2026 (00:00 AM), not midnight at the end of that date.',
-      'No PDF URL or submission link has been provided by faculty yet. Keep your handwritten solution prepared.',
     ],
     deadline: '2026-10-22T00:00:00+06:00',
     hasExactTime: true,
     timezone: 'Asia/Dhaka',
-    links: [],
+    links: [
+      {
+        label: 'DS BLC Submission Link',
+        url: 'https://elearn.daffodilvarsity.edu.bd/course/section.php?id=835209',
+        isExternal: true,
+        type: 'blc',
+      },
+    ],
     isLong: false,
   },
   {
