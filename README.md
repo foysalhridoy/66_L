@@ -31,7 +31,7 @@ Official course announcements, assignments, quizzes, project topic lists, live c
    ```bash
    npm run dev
    ```
-   Open `http://localhost:5173/` in your browser.
+   Open `https://66l.vercel.app/` in your browser.
 
 3. **Build for Production**:
    ```bash
