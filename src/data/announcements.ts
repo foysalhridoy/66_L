@@ -72,7 +72,7 @@ export const ANNOUNCEMENTS: Announcement[] = [
     links: [
       {
         label: 'DS BLC Submission Link',
-        url: 'https://elearn.daffodilvarsity.edu.bd/course/section.php?id=835209',
+        url: 'https://elearn.daffodilvarsity.edu.bd/mod/assign/view.php?id=2440422&forceview=1',
         isExternal: true,
         type: 'blc',
       },
