@@ -83,21 +83,111 @@ export const ANNOUNCEMENTS: Announcement[] = [
     id: 'ai-presentation-group',
     course: 'AI',
     category: 'Assignment / Presentation',
-    title: 'AI Assignment and Presentation Group Formation',
-    summary: 'Mandatory 5-member group formation for AI presentation and assignment submission.',
+    title: 'AI Presentation & Assignment: IEEE Paper & Extra Marks',
+    summary:
+      'IEEE paper 5-topic slides & video submission by 24 Oct. Full assignment implementation earns up to +7 extra marks.',
     instructions: [
-      'Everyone, please complete the spreadsheet.',
-      'The presentation assignment topic list has been shared by Ma’am in the WhatsApp group. Students should refer to that list when selecting their presentation topics.',
-      'Please complete the spreadsheet accordingly.',
+      'All groups have received their assigned IEEE research paper PDFs based on serial.',
+      'You need to create slides covering these five topics from your paper: 1. Model, 2. Dataset, 3. Findings, 4. Results, and 5. Implementation or Paper Gaps.',
+      'After making the slides, every member must record their presentation video.',
+      'Merge all the videos together into one complete presentation video.',
+      'Submit the merged video online by 24 October 2026.',
+      'Assignment Implementation Incentive: The group whose assignment is best, with all components completed and fully implemented, will receive +7 extra marks. Groups achieving slightly less will receive +5 extra marks.',
+      'Ensure your 5-member group registration on the spreadsheet is complete.',
     ],
     groupRules: [
       'Each group must have exactly 5 members.',
       'Groups with fewer than 5 members are not allowed.',
       'The maximum group size is 5 members.',
+      'Every member must record their presentation video and appear in the merged submission.',
     ],
+    presentationGuidelines: {
+      paperNotice:
+        'All groups have received their assigned IEEE research paper PDFs based on serial.',
+      slideTopics: [
+        {
+          id: 1,
+          title: 'Model',
+          description:
+            'Architecture, methodology, core algorithms, and proposed framework from the paper.',
+        },
+        {
+          id: 2,
+          title: 'Dataset',
+          description:
+            'Benchmark datasets used, volume, preprocessing techniques, and data splits.',
+        },
+        {
+          id: 3,
+          title: 'Findings',
+          description:
+            'Key insights, novel discoveries, qualitative deductions, and theoretical takeaways.',
+        },
+        {
+          id: 4,
+          title: 'Results',
+          description:
+            'Quantitative performance metrics, comparative benchmarks, and evaluation results.',
+        },
+        {
+          id: 5,
+          title: 'Implementation or Paper Gaps',
+          description:
+            'Practical implementation challenges, framework limitations, or unaddressed research gaps.',
+        },
+      ],
+      submissionFlow: [
+        {
+          step: 1,
+          title: 'Record Individual Videos',
+          instruction:
+            'Every member must record their presentation video explaining their designated part.',
+        },
+        {
+          step: 2,
+          title: 'Merge All Videos Together',
+          instruction:
+            'Stitch all members’ recorded videos together into a single complete group presentation file.',
+        },
+        {
+          step: 3,
+          title: 'Submit Online by 24 October',
+          instruction:
+            'Submit the merged presentation video online before the 24 October deadline.',
+        },
+      ],
+      submissionDeadlineNote: 'Online Video Submission Deadline: 24 October 2026',
+      assignmentBonus: {
+        title: 'Assignment Implementation & Bonus Marks',
+        description:
+          'Extra incentive marks awarded based on the depth, completeness, and implementation quality of the paper.',
+        tiers: [
+          {
+            id: 'tier-1',
+            marks: '+7 Extra Marks',
+            title: 'Best & Full Implementation',
+            condition:
+              'Awarded to the group whose assignment is the best, all tasks are fully completed, and features complete implementation.',
+            badge: 'Top Performer',
+          },
+          {
+            id: 'tier-2',
+            marks: '+5 Extra Marks',
+            title: 'Substantial Implementation',
+            condition:
+              'Awarded to groups that achieve slightly less than full implementation but demonstrate substantial, well-executed progress.',
+            badge: 'High Performer',
+          },
+        ],
+        note: 'Strive for full completion and complete implementation of your assigned paper to earn up to +7 extra marks!',
+      },
+    },
     importantNotes: [
-      'The presentation assignment topic list is shared by Ma’am in the WhatsApp group. The actual topic list will be added to this announcement once provided.',
-      'Displaying presentation deadline and assignment deadline separately as instructed.',
+      'All groups have received their assigned IEEE research paper PDFs based on serial.',
+      'Slides must cover all 5 topics: Model, Dataset, Findings, Results, and Implementation or Paper Gaps.',
+      'Every member must record their presentation video; merge all videos together and submit online by 24 October.',
+      'Extra Marks Reward: +7 extra marks for best full implementation (all completed); +5 extra marks for slightly less.',
+      'Displaying presentation deadline (24 October 2026) and assignment deadline separately as instructed.',
     ],
     deadline: '2026-10-24T23:59:59+06:00',
     hasExactTime: false,

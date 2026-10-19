@@ -4,6 +4,7 @@ import { COURSES } from '../data/courses';
 import { formatDeadlineDisplay } from '../utils/time';
 import { CountdownTimer } from './CountdownTimer';
 import { ProjectTopicsAccordion } from './ProjectTopicsAccordion';
+import { PresentationGuidelines } from './PresentationGuidelines';
 import { ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface AnnouncementCardProps {
@@ -38,7 +39,8 @@ export const AnnouncementCard: React.FC<AnnouncementCardProps> = ({
     Boolean(announcement.syllabus) ||
     Boolean(announcement.groupRules && announcement.groupRules.length > 0) ||
     Boolean(announcement.importantNotes && announcement.importantNotes.length > 0) ||
-    Boolean(announcement.projectTopics && announcement.projectTopics.length > 0);
+    Boolean(announcement.projectTopics && announcement.projectTopics.length > 0) ||
+    Boolean(announcement.presentationGuidelines);
 
   // Dot color matching the screenshot's circular avatar aesthetic
   const getCourseDot = (key: string) => {
@@ -80,9 +82,16 @@ export const AnnouncementCard: React.FC<AnnouncementCardProps> = ({
         </div>
 
         {/* Compact Title */}
-        <h3 className="text-base sm:text-lg font-extrabold text-black tracking-tight leading-snug mb-2.5 break-words [text-wrap:pretty]">
+        <h3 className="text-base sm:text-lg font-extrabold text-black tracking-tight leading-snug mb-1.5 break-words [text-wrap:pretty]">
           {announcement.title}
         </h3>
+
+        {/* Optional Summary */}
+        {announcement.summary && (
+          <p className="text-xs text-neutral-600 font-medium leading-relaxed mb-2.5 break-words [text-wrap:pretty]">
+            {announcement.summary}
+          </p>
+        )}
 
         {/* Compact Deadlines & Countdown Section */}
         <div className="space-y-2 mb-2.5">
@@ -122,9 +131,16 @@ export const AnnouncementCard: React.FC<AnnouncementCardProps> = ({
                   {announcement.secondaryDeadline.displayStatus}
                 </span>
               </div>
-              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#fef08a]/60 text-amber-950 border border-amber-200/80 shrink-0">
-                Not Announced
-              </span>
+              <div className="flex items-center gap-1.5 shrink-0">
+                {announcement.presentationGuidelines?.assignmentBonus && (
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-[#d4ff00]/30 text-neutral-900 border border-[#d4ff00]/70 shrink-0">
+                    Up to +7 Marks Bonus
+                  </span>
+                )}
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#fef08a]/60 text-amber-950 border border-amber-200/80 shrink-0">
+                  Not Announced
+                </span>
+              </div>
             </div>
           )}
         </div>
@@ -190,6 +206,11 @@ export const AnnouncementCard: React.FC<AnnouncementCardProps> = ({
               </div>
             )}
 
+            {/* Presentation Guidelines (AI IEEE Paper) */}
+            {announcement.presentationGuidelines && (
+              <PresentationGuidelines guidelines={announcement.presentationGuidelines} />
+            )}
+
             {/* Project Topics (OS Lab) */}
             {announcement.projectTopics && announcement.projectTopics.length > 0 && (
               <ProjectTopicsAccordion topics={announcement.projectTopics} />
@@ -206,7 +227,13 @@ export const AnnouncementCard: React.FC<AnnouncementCardProps> = ({
             onClick={() => setIsExpanded(!isExpanded)}
             className="inline-flex items-center gap-1 text-[11px] font-extrabold text-black hover:opacity-75 transition-opacity py-0.5 cursor-pointer"
           >
-            <span>{isExpanded ? 'Read Less' : 'Read Full Instructions'}</span>
+            <span>
+              {isExpanded
+                ? 'Read Less'
+                : announcement.presentationGuidelines
+                ? 'View Slide Topics, Guidelines & Extra Marks'
+                : 'Read Full Instructions'}
+            </span>
             {isExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
           </button>
         ) : (

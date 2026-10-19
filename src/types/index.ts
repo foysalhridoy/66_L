@@ -43,6 +43,42 @@ export interface SecondaryDeadline {
   displayStatus: string;
 }
 
+export interface SlideTopic {
+  id: number;
+  title: string;
+  description: string;
+  keyPoints?: string[];
+}
+
+export interface PresentationStep {
+  step: number;
+  title: string;
+  instruction: string;
+}
+
+export interface AssignmentBonusTier {
+  id: string;
+  marks: string;
+  title: string;
+  condition: string;
+  badge: string;
+}
+
+export interface AssignmentBonus {
+  title: string;
+  description: string;
+  tiers: AssignmentBonusTier[];
+  note?: string;
+}
+
+export interface PresentationGuidelines {
+  paperNotice: string;
+  slideTopics: SlideTopic[];
+  submissionFlow: PresentationStep[];
+  submissionDeadlineNote: string;
+  assignmentBonus?: AssignmentBonus;
+}
+
 export interface Announcement {
   id: string;
   course: CourseKey;
@@ -62,6 +98,7 @@ export interface Announcement {
   links: LinkItem[];
   // Special inline components / data
   projectTopics?: ProjectTopic[];
+  presentationGuidelines?: PresentationGuidelines;
   groupRules?: string[];
   syllabus?: string;
   importantNotes?: string[];
